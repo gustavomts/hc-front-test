@@ -14,13 +14,42 @@ angular.module('reportApp').controller('MainCtrl', [
   function($scope, ReportService, UserService) {
     $scope.reports = [];
     $scope.users = [];
+    $scope.currentPage = 1;
+    $scope.pageLimit = 5;
 
-    ReportService.getReports().then(function(res) {
-      $scope.reports = res.data;
-    });
+    $scope.updatePageNumber = function(pageNumber) {
+      $scope.currentPage = pageNumber;
+      $scope.getReports();
+    };
+
+    $scope.updatePageSize = function(pageLimit) {
+      $scope.pageLimit = pageLimit;
+      $scope.getReports();
+    };
+
+    $scope.getReports = function() {
+      ReportService.getReports({
+        userId: this.selectedUser,
+        paginationLimit: $scope.pageLimit,
+        paginationOffset: ($scope.currentPage - 1) * $scope.pageLimit
+      }).then(function(res) {
+        $scope.reports = res.data;
+        if ($scope.reports.length < 1 && $scope.currentPage > 1) {
+          $scope.currentPage -= 1;
+          $scope.getReports();
+        }
+      });
+    };
+
+    $scope.selectUser = function(selectedUser) {
+      this.selectedUser = selectedUser;
+      $scope.getReports();
+    };
 
     UserService.getUsers().then(function(res) {
       $scope.users = res.data;
     });
+
+    $scope.getReports();
   }
 ]);

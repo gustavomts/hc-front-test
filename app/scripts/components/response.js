@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular.module('reportApp').component('responseDetails', {
-    template: `Hello, {{$ctrl.user}}!`,
+    template: '',
     bindings: {
       response: '<'
     },
