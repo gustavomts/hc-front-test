@@ -39,7 +39,12 @@
       this.pageSizes = [10, 20, 50, 100];
 
       this.updatePageSize = function() {
-        this.onUpdatePageSize({ pageLimit: this.selectedPageLimit });
+        if (
+          this.reportCount === this.pageLimit ||
+          this.selectedPageLimit < this.reportCount
+        ) {
+          this.onUpdatePageSize({ pageLimit: this.selectedPageLimit });
+        }
       };
 
       this.goToPrevious = function() {
