@@ -87,6 +87,28 @@ a {
   align-items: center;
 }
 
+.report-supervisors-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 20px 0 0 0;
+}
+
+.supervisors-label {
+  color: rgb(101, 201, 228);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.supervisor-name {
+  color: rgb(210, 206, 200);
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
 .select-box {
   transform: translate(0%, 0%);
   margin: 0 20px 0 0;
@@ -109,7 +131,7 @@ a {
   content: '\f13a';
   font-family: FontAwesome;
   position: absolute;
-  /* top: -20; */
+  top: 0;
   right: 0;
   width: 20%;
   height: 100%;
