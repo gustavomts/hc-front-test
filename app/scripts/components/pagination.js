@@ -8,24 +8,11 @@
           <option value="">Tamanho da página</option>
         </select>
       </div>
-      <!-- <ul class="pagination">
-        <li class="page-item">
-          <a class="page-link" ng-click="$ctrl.goToPrevious()" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link">{{$ctrl.currentPage}}</a></li>
-        <li class="page-item">
-          <a class="page-link" ng-click="$ctrl.goToNext()" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul> -->
 
       <div class="pagination">
-        <a class="prev page-numbers" ng-click="$ctrl.goToPrevious()" href="javascript:;">prev</a>
+        <a class="prev page-numbers" ng-click="$ctrl.goToPrevious()">prev</a>
         <span aria-current="page" class="page-numbers current">{{$ctrl.currentPage}}</span>
-        <a class="next page-numbers" ng-click="$ctrl.goToNext()" href="javascript:;">next</a>
+        <a class="next page-numbers" ng-click="$ctrl.goToNext()">next</a>
       </div>
     </div>
   `,
