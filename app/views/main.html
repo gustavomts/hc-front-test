@@ -1,20 +1,14 @@
-<div class="row marketing">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <user-select users="users" on-select-user="selectUser(selectedUser)" />
-      </div>
-      <div class="col-md-8">
-        <pagination
-          on-previous="updatePageNumber(pageNumber)"
-          on-next="updatePageNumber(pageNumber)"
-          current-page="currentPage"
-          report-count="reports.length"
-          on-update-page-size="updatePageSize(pageLimit)"
-          page-limit="pageLimit"
-        />
-      </div>
-    </div>
+<div class="">
+  <div class="filter-container">
+    <user-select users="users" on-select-user="selectUser(selectedUser)" />
+    <pagination
+      on-previous="updatePageNumber(pageNumber)"
+      on-next="updatePageNumber(pageNumber)"
+      current-page="currentPage"
+      report-count="reports.length"
+      on-update-page-size="updatePageSize(pageLimit)"
+      page-limit="pageLimit"
+    />
   </div>
   <report-details ng-repeat="report in reports" report="report" />
 </div>

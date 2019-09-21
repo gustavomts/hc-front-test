@@ -2,28 +2,30 @@
   'use strict';
   angular.module('reportApp').component('pagination', {
     template: `
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3">
-          <ul class="pagination">
-            <li class="page-item">
-              <a class="page-link" ng-click="$ctrl.goToPrevious()" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link">{{$ctrl.currentPage}}</a></li>
-            <li class="page-item">
-              <a class="page-link" ng-click="$ctrl.goToNext()" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-4">
-          <select class="form-control" ng-model="$ctrl.selectedPageLimit" ng-change="$ctrl.updatePageSize()" ng-options='size for size in $ctrl.pageSizes'>
-            <option value="">Tamanho da página</option>
-          </select>
-        </div>
+    <div class="pagination-container">
+      <div class="select-box">
+        <select ng-model="$ctrl.selectedPageLimit" ng-change="$ctrl.updatePageSize()" ng-options='size for size in $ctrl.pageSizes'>
+          <option value="">Tamanho da página</option>
+        </select>
+      </div>
+      <!-- <ul class="pagination">
+        <li class="page-item">
+          <a class="page-link" ng-click="$ctrl.goToPrevious()" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="page-item"><a class="page-link">{{$ctrl.currentPage}}</a></li>
+        <li class="page-item">
+          <a class="page-link" ng-click="$ctrl.goToNext()" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul> -->
+
+      <div class="pagination">
+        <a class="prev page-numbers" ng-click="$ctrl.goToPrevious()" href="javascript:;">prev</a>
+        <span aria-current="page" class="page-numbers current">{{$ctrl.currentPage}}</span>
+        <a class="next page-numbers" ng-click="$ctrl.goToNext()" href="javascript:;">next</a>
       </div>
     </div>
   `,
